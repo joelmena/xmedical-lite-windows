@@ -1,0 +1,98 @@
+﻿@model XMedicalLite.Models.Paciente
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@*<h2>Create</h2>*@
+
+
+<h4>Paciente nuevo</h4>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <hr />
+    <div class="row">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Nombres, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nombres, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Sexo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.EstadoCivil, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.EstadoCivil, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EstadoCivil, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group col-md-12">
+            @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+        </div>
+
+
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Provincia, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Provincia, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Municipio, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            @Html.ActionLink("Cancelar", "Index", null, htmlAttributes: new { @class = "btn btn-danger" })
+        </div>
+
+        <div>
+        </div>
+    </div>
+}
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,56 @@
+﻿@model XMedicalLite.Models.Paciente
+
+
+<strong>
+    <p>Datos Generales</p>
+</strong>
+<div class="aj-container">
+    <div class="row">
+        <div class="col">
+            <strong>
+                Nombre:
+            </strong>
+            @Model.Nombres
+        </div>
+        <div class="col">
+            <strong>
+                Apellidos:
+            </strong>
+            @Model.Apellidos
+        </div>
+        <div class="col">
+            <strong>
+                Cedula:
+            </strong>
+            @Model.Cedula
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <strong>
+                Fecha nacimiento:
+            </strong>
+            @Model.FechaNacimiento
+        </div>
+        <div class="col">
+            <strong>
+                Telefono:
+            </strong>
+            @Model.Telefono
+        </div>
+        <div class="col">
+            <strong>
+                Estado civil:
+            </strong>
+            @Model.EstadoCivil
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <strong>
+                Direccion:
+            </strong>
+            @Model.Direccion
+        </div>
+    </div>
+</div>
