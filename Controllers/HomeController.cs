@@ -37,5 +37,11 @@ namespace XMedicalLite_Windows.Controllers
             }
             return View();
         }
+
+        public ActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

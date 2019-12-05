@@ -13,9 +13,11 @@
         <div class="container">
             <div class="navbar-header">
                 @Html.ActionLink("XMedical Lite", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Pacientes", "Index", "Pacientes", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Expedientes", "Index", "Expedientes", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="offset-3">
+                @Html.ActionLink("Cerrar session", "LogOut", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">

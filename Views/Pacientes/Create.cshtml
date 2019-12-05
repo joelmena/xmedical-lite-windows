@@ -20,13 +20,13 @@
 
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Nombres, htmlAttributes: new { @class = "" })
-            @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
             @Html.ValidationMessageFor(model => model.Nombres, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "" })
-            @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
             @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger" })
         </div>
 
@@ -39,7 +39,7 @@
 
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "" })
-            @Html.EditorFor(model => model.Sexo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Sexo, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
             @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
         </div>
 
@@ -72,7 +72,7 @@
 
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Provincia, htmlAttributes: new { @class = "" })
-            @Html.EditorFor(model => model.Provincia, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Provincia, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
             @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger" })
         </div>
 
@@ -82,9 +82,9 @@
             @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
         </div>
 
-        <div class="form-group col">
-            <input type="submit" value="Create" class="btn btn-primary" />
+        <div class="form-group offset-10">
             @Html.ActionLink("Cancelar", "Index", null, htmlAttributes: new { @class = "btn btn-danger" })
+            <input type="submit" value="Registrar" class="btn btn-primary" />
         </div>
 
         <div>
