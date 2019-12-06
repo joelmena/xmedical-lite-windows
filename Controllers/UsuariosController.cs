@@ -18,12 +18,22 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(db.Usuarios.ToList());
         }
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +49,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -49,6 +64,11 @@ namespace XMedicalLite_Windows.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UsuarioID,NombreUsuario,Password,Nombre,Apellido")] Usuario usuario)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 usuario.Password = Crypto.HashPassword(usuario.Password);
@@ -63,6 +83,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -82,6 +107,11 @@ namespace XMedicalLite_Windows.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "UsuarioID,NombreUsuario,Password,Nombre,Apellido")] Usuario usuario)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 usuario.Password = Crypto.HashPassword(usuario.Password);
@@ -95,6 +125,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -112,6 +147,11 @@ namespace XMedicalLite_Windows.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             Usuario usuario = db.Usuarios.Find(id);
             db.Usuarios.Remove(usuario);
             db.SaveChanges();

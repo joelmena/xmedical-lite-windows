@@ -17,12 +17,22 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Pacientes
         public ActionResult Index()
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
             return View(db.Pacientes.ToList());
         }
 
         // GET: Pacientes/Details/5
         public ActionResult Details(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +48,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Pacientes/Create
         public ActionResult Create()
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -48,6 +63,11 @@ namespace XMedicalLite_Windows.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PacienteID,Nombres,Apellidos,Sexo,FechaNacimiento,Cedula,EstadoCivil,Telefono,Direccion,Provincia,Municipio")] Paciente paciente)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Pacientes.Add(paciente);
@@ -61,6 +81,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Pacientes/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +105,11 @@ namespace XMedicalLite_Windows.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PacienteID,Nombres,Apellidos,Sexo,FechaNacimiento,Cedula,EstadoCivil,Telefono,Direccion,Provincia,Municipio")] Paciente paciente)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(paciente).State = EntityState.Modified;
@@ -92,6 +122,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Pacientes/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,10 +144,21 @@ namespace XMedicalLite_Windows.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             Paciente paciente = db.Pacientes.Find(id);
             db.Pacientes.Remove(paciente);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult DatosPaciente(int id)
+        {
+            var paciente = db.Pacientes.Find(id);
+            return PartialView("/Views/Shared/_Paciente.cshtml", paciente);
         }
 
         protected override void Dispose(bool disposing)

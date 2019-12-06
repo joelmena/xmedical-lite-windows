@@ -17,6 +17,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Expedientes
         public ActionResult Index()
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             var expedientes = db.Expedientes.Include(p => p.Paciente);
             return View(expedientes);
         }
@@ -24,6 +29,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Expedientes/Details/5
         public ActionResult Details(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +49,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Expedientes/Create
         public ActionResult Create(int id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.PacienteID = id;
             //ViewBag.PacienteID = new SelectList(db.Pacientes, "PacienteID", "Nombres");
             return View();
@@ -49,8 +64,13 @@ namespace XMedicalLite_Windows.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ExpedienteID,PacienteID,Aseguradora,NumeroNSS,MotivoIngreso,Antecedentes,Pulso,FrecuenciaCardiaca,PrecionArteriar,FrecuenciaRespiratoria,ExamenPaciente,Diagnostico,Conducta,Evolucion,Recomendacion")] Expediente expediente, int id)
+        public ActionResult Create(Expediente expediente, int id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             expediente.PacienteID = id;
             try
             {
@@ -70,6 +90,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Expedientes/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -88,8 +113,13 @@ namespace XMedicalLite_Windows.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ExpedienteID,PacienteID,Aseguradora,NumeroNSS,MotivoIngreso,Antecedentes,Pulso,FrecuenciaCardiaca,PrecionArteriar,FrecuenciaRespiratoria,ExamenPaciente,Diagnostico,Conducta,Evolucion,Recomendacion")] Expediente expediente)
+        public ActionResult Edit(Expediente expediente)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(expediente).State = EntityState.Modified;
@@ -103,6 +133,11 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Expedientes/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -120,6 +155,11 @@ namespace XMedicalLite_Windows.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (HttpContext.Session.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             Expediente expediente = db.Expedientes.Find(id);
             db.Expedientes.Remove(expediente);
             db.SaveChanges();
