@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reporte</title>
+
+    @* zona de estilos *@
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+</head>
+<body>
+    <div class="reporte">
+
+        <div class="row mt-2">
+            <div class="col-2 border">
+                Logo Institucion
+            </div>
+            <div class="col-8 border">
+                Datos Institucion
+            </div>
+            <div class="col-2 border">
+                Otros datos
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-2 border">
+                Datos de paciente
+            </div>
+        </div>
+
+        <div class="reporte-paciente border">
+            Datos de paciente
+        </div>
+
+    </div>
+
+    @* zona de scripts *@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+</body>
+</html>
