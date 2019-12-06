@@ -62,7 +62,7 @@
 
         <div class="form-group col-3">
             @Html.LabelFor(model => model.PrecionArteriar, htmlAttributes: new { @class = "" })
-            @Html.EditorFor(model => model.PrecionArteriar, new { htmlAttributes = new { @class = "form-control", @pattern = @patron } })
+            @Html.EditorFor(model => model.PrecionArteriar, new { htmlAttributes = new { @class = "form-control", @id="precionArteriar", @ } })
             @Html.ValidationMessageFor(model => model.PrecionArteriar, "", new { @class = "text-danger" })
         </div>
 
@@ -130,3 +130,10 @@
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#precionArteriar").mask("000/000");
+        alert("Hola");
+    })
+</script>
