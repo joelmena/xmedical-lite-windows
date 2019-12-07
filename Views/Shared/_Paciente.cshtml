@@ -8,6 +8,24 @@
     <div class="row">
         <div class="col">
             <strong>
+                Numero de Referencia:
+            </strong>
+            @Model.Referencia
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <strong>
+                Fecha:
+            </strong>
+            @DateTime.Now.ToShortDateString()
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <strong>
                 Nombre:
             </strong>
             @Model.Nombres
@@ -28,21 +46,21 @@
     <div class="row">
         <div class="col">
             <strong>
-                Fecha nacimiento:
+                Sexo:
             </strong>
-            @Model.FechaNacimiento
+            @Model.Sexo.Descripcion
         </div>
         <div class="col">
             <strong>
-                Telefono:
+                Fecha nacimiento:
             </strong>
-            @Model.Telefono
+            @Model.FechaNacimiento.Date.ToShortDateString()
         </div>
         <div class="col">
             <strong>
                 Estado civil:
             </strong>
-            @Model.EstadoCivil
+            @Model.EstadoCivil.Descripcion
         </div>
     </div>
     <div class="row">
@@ -51,6 +69,33 @@
                 Direccion:
             </strong>
             @Model.Direccion
+        </div>
+        <div class="col">
+            <strong>
+                Telefono:
+            </strong>
+            @Model.Telefono
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <strong>
+                Aseguradora:
+            </strong>
+            @Model.Aseguradora
+        </div>
+        <div class="col">
+            <strong>
+                Numero NSS:
+            </strong>
+            @Model.NumeroNSS
+        </div>
+        <div class="col">
+
         </div>
     </div>
 </div>

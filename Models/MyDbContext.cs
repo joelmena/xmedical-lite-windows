@@ -23,5 +23,7 @@ namespace XMedicalLite.Models
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<Expediente> Expedientes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Sexo> Sexos { get; set; }
+        public DbSet<EstadoCivil> EstadosCivil { get; set; }
     }
 }

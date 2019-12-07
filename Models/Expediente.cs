@@ -11,12 +11,6 @@ namespace XMedicalLite.Models
         public int ExpedienteID { get; set; }
         public int PacienteID { get; set; }
 
-        [Display(Name = "Aseguradora")]
-        public string Aseguradora { get; set; }
-
-        [Display(Name = "Numero de NSS/Poliza")]
-        public string NumeroNSS { get; set; }
-
         [Display(Name = "Motivo de consulta")]
         [DataType(DataType.MultilineText)]
         public string MotivoIngreso { get; set; }
@@ -33,18 +27,30 @@ namespace XMedicalLite.Models
         //Signos vitales
         //public int Pulso { get; set; }
 
-        [Display(Name = "Frecuencia cardiaca")]
+        [Display(Name = "Frecuencia cardiaca (L/Min)")]
         public int FrecuenciaCardiaca { get; set; }
 
         //[RegularExpression("^\d\d\d/\d(1,2)")]
-        [Display(Name = "Presion arterial")]
+        [Display(Name = "Presion arterial (Mm/Hg)")]
         public string PrecionArteriar { get; set; }
 
-        [Display(Name = "Frecuencia respiratoria")]
+        [Display(Name = "Frecuencia respiratoria (R/Min)")]
         public int FrecuenciaRespiratoria { get; set; }
 
-        [Display(Name = "Temperatura")]
+        [Display(Name = "Temperatura (Celcius)")]
         public float Temperatura { get; set; }
+
+        [Display(Name ="Peso (Lb)")]
+        public float Peso { get; set; }
+
+        [Display(Name ="Saturacion O2 (%)")]
+        public int SaturacionOxigeno { get; set; }
+
+        [Display(Name ="Escala de Glasgow")]
+        public int EscalaGlasgow { get; set; }
+
+        [Display(Name ="Escala de dolor")]
+        public int EscalaDolor { get; set; }
 
         //Examen general
         [Display(Name = "Examen fisico")]

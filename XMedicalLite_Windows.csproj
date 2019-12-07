@@ -188,9 +188,11 @@
       <DependentUpon>201911292032308_actualizacion_modelos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\EstadoCivil.cs" />
     <Compile Include="Models\Expediente.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Paciente.cs" />
+    <Compile Include="Models\Sexo.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

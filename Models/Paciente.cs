@@ -10,6 +10,9 @@ namespace XMedicalLite.Models
     {
         public int PacienteID { get; set; }
 
+        [Display(Name ="Numero de Referencia")]
+        public string Referencia { get; set; }
+
         [Display(Name ="Nombres")]
         public string Nombres { get; set; }
 
@@ -17,7 +20,7 @@ namespace XMedicalLite.Models
         public string Apellidos { get; set; }
 
         [Display(Name = "Sexo")]
-        public string Sexo { get; set; }
+        public int SexoID { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Fecha de nacimiento")]
@@ -27,7 +30,7 @@ namespace XMedicalLite.Models
         public string Cedula { get; set; }
 
         [Display(Name = "Estado civil")]
-        public string EstadoCivil { get; set; }
+        public int EstadoCivilID { get; set; }
 
         [Display(Name = "Telefono")]
         public string Telefono { get; set; }
@@ -40,5 +43,15 @@ namespace XMedicalLite.Models
 
         [Display(Name = "Municipio")]
         public string Municipio { get; set; }
+
+        [Display(Name = "Aseguradora")]
+        public string Aseguradora { get; set; }
+
+        [Display(Name = "Numero de NSS/Poliza")]
+        public string NumeroNSS { get; set; }
+
+
+        public virtual Sexo Sexo { get; set; }
+        public virtual EstadoCivil EstadoCivil { get; set; }
     }
 }

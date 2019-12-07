@@ -52,7 +52,8 @@ namespace XMedicalLite_Windows.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
+            ViewBag.SexoId = new SelectList(db.Sexos, "SexoID", "Descripcion");
+            ViewBag.EstadoCivilId = new SelectList(db.EstadosCivil, "EstadoCivilID", "Descripcion");
             return View();
         }
 
@@ -61,7 +62,7 @@ namespace XMedicalLite_Windows.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PacienteID,Nombres,Apellidos,Sexo,FechaNacimiento,Cedula,EstadoCivil,Telefono,Direccion,Provincia,Municipio")] Paciente paciente)
+        public ActionResult Create(Paciente paciente)
         {
             if (HttpContext.Session.Count == 0)
             {
@@ -95,6 +96,8 @@ namespace XMedicalLite_Windows.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.SexoId = new SelectList(db.Sexos, "SexoID", "Descripcion", paciente.SexoID);
+            ViewBag.EstadoCivilId = new SelectList(db.EstadosCivil, "EstadoCivilID", "Descripcion", paciente.EstadoCivilID);
             return View(paciente);
         }
 
@@ -103,7 +106,7 @@ namespace XMedicalLite_Windows.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PacienteID,Nombres,Apellidos,Sexo,FechaNacimiento,Cedula,EstadoCivil,Telefono,Direccion,Provincia,Municipio")] Paciente paciente)
+        public ActionResult Edit(Paciente paciente)
         {
             if (HttpContext.Session.Count == 0)
             {
