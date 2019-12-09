@@ -143,6 +143,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -187,12 +188,17 @@
     <Compile Include="Migrations\201911292032308_actualizacion_modelos.Designer.cs">
       <DependentUpon>201911292032308_actualizacion_modelos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912082312037_modelo_triaje.cs" />
+    <Compile Include="Migrations\201912082312037_modelo_triaje.Designer.cs">
+      <DependentUpon>201912082312037_modelo_triaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EstadoCivil.cs" />
     <Compile Include="Models\Expediente.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Paciente.cs" />
     <Compile Include="Models\Sexo.cs" />
+    <Compile Include="Models\Triaje.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911292032308_actualizacion_modelos.resx">
       <DependentUpon>201911292032308_actualizacion_modelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912082312037_modelo_triaje.resx">
+      <DependentUpon>201912082312037_modelo_triaje.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,9 +8,9 @@
     <div class="row">
         <div class="col">
             <strong>
-                Numero de Referencia:
+                @Html.LabelFor(model => model.Referencia)
             </strong>
-            @Model.Referencia
+            @Html.DisplayFor(model => model.Referencia)
         </div>
         <div class="col">
 
@@ -26,55 +26,55 @@
     <div class="row">
         <div class="col">
             <strong>
-                Nombre:
+                @Html.LabelFor(model => model.Nombres)
             </strong>
-            @Model.Nombres
+            @Html.DisplayFor(model => model.Nombres)
         </div>
         <div class="col">
             <strong>
-                Apellidos:
+                @Html.LabelFor(model => model.Apellidos)
             </strong>
-            @Model.Apellidos
+            @Html.DisplayFor(model => model.Apellidos)
         </div>
         <div class="col">
             <strong>
-                Cedula:
+                @Html.LabelFor(model => model.Cedula)
             </strong>
-            @Model.Cedula
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <strong>
-                Sexo:
-            </strong>
-            @Model.Sexo.Descripcion
-        </div>
-        <div class="col">
-            <strong>
-                Fecha nacimiento:
-            </strong>
-            @Model.FechaNacimiento.Date.ToShortDateString()
-        </div>
-        <div class="col">
-            <strong>
-                Estado civil:
-            </strong>
-            @Model.EstadoCivil.Descripcion
+            @Html.DisplayFor(model => model.Cedula)
         </div>
     </div>
     <div class="row">
         <div class="col">
             <strong>
-                Direccion:
+                @Html.LabelFor(model => model.Sexo.Descripcion)
             </strong>
-            @Model.Direccion
+            @Html.DisplayFor(model => model.Sexo.Descripcion)
         </div>
         <div class="col">
             <strong>
-                Telefono:
+                @Html.LabelFor(model => model.FechaNacimiento)
             </strong>
-            @Model.Telefono
+            @Html.DisplayFor(model => model.FechaNacimiento)
+        </div>
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.EstadoCivil.Descripcion)
+            </strong>
+            @Html.DisplayFor(Model => Model.EstadoCivil.Descripcion)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Direccion)
+            </strong>
+            @Html.DisplayFor(model => model.Direccion)
+        </div>
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Telefono)
+            </strong>
+            @Html.DisplayFor(model => model.Telefono)
         </div>
         <div class="col">
 
@@ -84,15 +84,15 @@
     <div class="row">
         <div class="col">
             <strong>
-                Aseguradora:
+                @Html.LabelFor(model => model.Aseguradora)
             </strong>
-            @Model.Aseguradora
+            @Html.DisplayFor(model => model.Aseguradora)
         </div>
         <div class="col">
             <strong>
-                Numero NSS:
+                @Html.LabelFor(model => model.NumeroNSS)
             </strong>
-            @Model.NumeroNSS
+            @Html.DisplayFor(model => model.NumeroNSS)
         </div>
         <div class="col">
 

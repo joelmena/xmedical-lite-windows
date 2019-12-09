@@ -55,7 +55,7 @@ namespace XMedicalLite_Windows.Controllers
             }
 
             ViewBag.PacienteID = id;
-            //ViewBag.PacienteID = new SelectList(db.Pacientes, "PacienteID", "Nombres");
+            ViewBag.TriajeID = new SelectList(db.Triajes, "TriajeID", "Color");
             return View();
         }
 
@@ -72,17 +72,12 @@ namespace XMedicalLite_Windows.Controllers
             }
 
             expediente.PacienteID = id;
-            try
+            if (ModelState.IsValid)
             {
                 db.Expedientes.Add(expediente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
             ViewBag.PacienteID = id;
             return View(expediente);
         }
@@ -105,6 +100,7 @@ namespace XMedicalLite_Windows.Controllers
                 return HttpNotFound();
             }
             ViewBag.PacienteID = new SelectList(db.Pacientes, "PacienteID", "Nombres", expediente.PacienteID);
+            ViewBag.TriajeID = new SelectList(db.Triajes, "TriajeID", "Color", expediente.TriajeID);
             return View(expediente);
         }
 

@@ -10,10 +10,11 @@ namespace XMedicalLite.Models
     {
         public int ExpedienteID { get; set; }
         public int PacienteID { get; set; }
+        public int TriajeID { get; set; }
 
         [Display(Name = "Motivo de consulta")]
         [DataType(DataType.MultilineText)]
-        public string MotivoIngreso { get; set; }
+        public string MotivoConsulta { get; set; }
 
         //Anamnesis
         [Display(Name = "Antecedentes")]
@@ -55,22 +56,22 @@ namespace XMedicalLite.Models
         //Examen general
         [Display(Name = "Examen fisico")]
         [DataType(DataType.MultilineText)]
-        public string ExamenPaciente { get; set; }
+        public string ExamenFisico { get; set; }
 
         [Display(Name = "Diagnostico")]
         public string Diagnostico { get; set; }
 
         [Display(Name = "Estudios de imagenes y analiticas")]
         [DataType(DataType.MultilineText)]
-        public string Conducta { get; set; }
+        public string Estudio { get; set; }
 
         [Display(Name = "Tratamientos")]
         [DataType(DataType.MultilineText)]
-        public string Evolucion { get; set; }
+        public string Tratramiento { get; set; }
 
         [Display(Name = "Notas")]
         [DataType(DataType.MultilineText)]
-        public string Recomendacion { get; set; }
+        public string Nota { get; set; }
 
         [Display(Name = "Destino")]
         public string Destino { get; set; }
@@ -78,7 +79,17 @@ namespace XMedicalLite.Models
         [Display(Name = "Nombre del medico")]
         public string NombreMedico { get; set; }
 
+        [Display(Name ="Fecha creado")]
+        [DataType(DataType.DateTime)]
+        public DateTime FechaCreado { get; set; }
+
+        public Expediente()
+        {
+            this.FechaCreado = DateTime.Now;
+        }
+
         public virtual Paciente Paciente { get; set; }
+        public virtual Triaje Triaje { get; set; }
 
         //Salida del paciente
 
