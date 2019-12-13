@@ -5,5 +5,5 @@
 
 function fechaCreacion() {
     var idExp = $("#Nombres").val();
-    alert(idExp);
+    //alert(idExp);
 }

@@ -4,12 +4,12 @@
     ViewBag.Title = "Create";
 }
 
-<div class="">
+@*<div class="">
     <strong>
         @Html.LabelFor(model => model.FechaCreado)
     </strong>
     @Html.DisplayFor(model => model.FechaCreado)
-</div>
+</div>*@
 
 <div class="">
     @{Html.RenderAction("DatosPaciente", "Pacientes", new { id = ViewBag.PacienteID }); }

@@ -72,14 +72,18 @@ namespace XMedicalLite_Windows.Controllers
             }
 
             expediente.PacienteID = id;
-            if (ModelState.IsValid)
+            try
             {
                 db.Expedientes.Add(expediente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PacienteID = id;
-            return View(expediente);
+            catch(Exception ex)
+            {
+                ViewBag.PacienteID = id;
+                ViewBag.TriajeID = new SelectList(db.Triajes, "TriajeID", "Color", expediente.TriajeID);
+                return View(expediente);
+            }
         }
 
         // GET: Expedientes/Edit/5
@@ -118,11 +122,13 @@ namespace XMedicalLite_Windows.Controllers
 
             if (ModelState.IsValid)
             {
+                expediente.ActualizadoEn = DateTime.Now;
                 db.Entry(expediente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.PacienteID = new SelectList(db.Pacientes, "PacienteID", "Nombres", expediente.PacienteID);
+            ViewBag.TriajeID = new SelectList(db.Triajes, "TriajeID", "Color", expediente.TriajeID);
             return View(expediente);
         }
 
@@ -170,5 +176,8 @@ namespace XMedicalLite_Windows.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //METODOS AUXILIARES
+       
     }
 }

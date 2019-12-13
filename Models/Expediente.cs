@@ -79,13 +79,18 @@ namespace XMedicalLite.Models
         [Display(Name = "Nombre del medico")]
         public string NombreMedico { get; set; }
 
-        [Display(Name ="Fecha creado")]
+        [Display(Name = "Fecha creado")]
         [DataType(DataType.DateTime)]
-        public DateTime FechaCreado { get; set; }
+        public DateTime CreadoEn { get; set; }
+
+        [Display(Name = "Fecha creado")]
+        [DataType(DataType.DateTime)]
+        public DateTime ActualizadoEn { get; set; }
 
         public Expediente()
         {
-            this.FechaCreado = DateTime.Now;
+            this.CreadoEn = DateTime.Now;
+            this.ActualizadoEn = DateTime.Now;
         }
 
         public virtual Paciente Paciente { get; set; }
