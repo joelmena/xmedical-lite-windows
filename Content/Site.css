@@ -16,17 +16,100 @@ textarea {
     max-width: 280px;
 }*/
 
-.aj-container{
-    background-color:whitesmoke;
-    padding: 15px;
-}
-
-.reporte{
+.contenedor{
     margin:auto;
     width:816px;
     height:1056px;
 }
+.aj-container{
+    background-color:whitesmoke;
+}
 
-.reporte-paciente{
-    
+/*borders*/
+.aj-border{
+    border:solid;
+}
+
+/*rows*/
+.aj-row{
+    width:auto;
+}
+
+/*columns*/
+.aj-col{
+    width:auto;
+}
+.aj-col-1{
+    width:68px;
+}
+.aj-col-2 {
+    width: 136px;
+}
+.aj-col-3 {
+    width: 204px;
+}
+.aj-col-4 {
+    width: 272px;
+}
+.aj-col-5 {
+    width: 340px;
+}
+.aj-col-6{
+    width:408px;
+}
+.aj-col-7 {
+    width: 476px;
+}
+.aj-col-8 {
+    width: 544px;
+}
+.aj-col-9 {
+    width: 612px;
+}
+.aj-col-10 {
+    width: 680px;
+}
+.aj-col-11 {
+    width: 748px;
+}
+
+.aj-float-l{
+    float: left;
+}
+
+.aj-display{
+    display: inline-block;
+}
+
+/*margin-left*/
+.aj-ml {
+    margin: 1px auto;
+}
+.aj-ml-1{
+    margin-left: 1px;
+}
+.aj-ml-2 {
+    margin-left: 2px;
+}
+.aj-ml-3 {
+    margin-left: 3px;
+}
+.aj-ml-4 {
+    margin-left: 4px;
+}
+.aj-ml-5 {
+    margin-left: 5px;
+}
+
+
+.aj-text-align-center{
+    text-align: center;
+}
+.aj-align-center{
+    margin: auto;
+    padding: 5px;
+}
+
+.estudio{
+    height:100px;
 }

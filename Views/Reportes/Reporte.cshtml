@@ -1,4 +1,4 @@
-﻿
+﻿@model XMedicalLite_Windows.Models.Reporte
 @{
     Layout = null;
 }
@@ -12,39 +12,77 @@
 
     @* zona de estilos *@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>*@
 
 </head>
 <body>
-    <div class="reporte">
-
-        <div class="row mt-2">
-            <div class="col-2 border">
+    <div class="contenedor aj-border">
+        <div class="aj-row aj-border aj-align-center">
+            <div class="aj-border aj-display aj-col-2 aj-text-align-center">
                 Logo Institucion
             </div>
-            <div class="col-8 border">
+            <div class="aj-border aj-display aj-col-6 aj-text-align-center">
                 Datos Institucion
             </div>
-            <div class="col-2 border">
+            <div class="aj-border aj-display aj-col-3 aj-text-align-center">
                 Otros datos
             </div>
         </div>
-        <div class="row">
-            <div class="col mt-2 border">
-                Datos de paciente
-            </div>
-        </div>
 
-        <div class="reporte-paciente border">
-            Datos de paciente
+        <div class="aj-align-center">
+            <div class="aj-col aj-border">
+                Datos de paciente<hr />
+                <div class="aj-col-4 aj-display">
+                    Nombre: @Model.Paciente.Nombres
+                </div>
+                <div class="aj-col-4 aj-display">
+                    Apellido: @Model.Paciente.Apellidos
+                </div>
+                <div class="aj-col-3 aj-display">
+                    Cedula: @Model.Paciente.Cedula
+                </div>
+
+                <div class="aj-col-4 aj-display">
+                    Sexo: @Model.Paciente.Sexo.Descripcion
+                </div>
+                <div class="aj-col-4 aj-display">
+                    Fecha de nacimiento: @Model.Paciente.FechaNacimiento.ToShortDateString()
+                </div>
+                <div class="aj-col-3 aj-display">
+                    Estado civil: @Model.Paciente.EstadoCivil.Descripcion
+                </div>
+            </div>
+
+
+
+            <div class="aj-col aj-border">
+                Motivo de consulta<hr />
+                @Model.Expediente.MotivoConsulta
+            </div>
+            <div class="aj-col aj-border">
+                Historia de la enfermedad<hr />
+                @Model.Expediente.HistoriaEnfermedad
+            </div>
+            <div class="aj-col aj-border">
+                Diagnostico<hr />
+                @Model.Expediente.Diagnostico
+            </div>
+            <div class="aj-col aj-border">
+                Tratamientos<hr />
+                @Model.Expediente.Tratramiento
+            </div>
+            <div class="estudio aj-col aj-border">
+                Estudios<hr />
+                @Model.Expediente.Estudio
+            </div>
         </div>
 
     </div>
 
     @* zona de scripts *@
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>*@
 </body>
 </html>

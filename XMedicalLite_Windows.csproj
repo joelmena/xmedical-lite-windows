@@ -197,6 +197,7 @@
     <Compile Include="Models\Expediente.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Paciente.cs" />
+    <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\Sexo.cs" />
     <Compile Include="Models\Triaje.cs" />
     <Compile Include="Models\Usuario.cs" />

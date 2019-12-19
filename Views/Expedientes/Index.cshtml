@@ -44,8 +44,8 @@
         </td>
         
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ExpedienteID }, htmlAttributes: new { @class = "btn btn-primary" }) |
-            @Html.ActionLink("Imprimir", "Details", new { id=item.ExpedienteID}, htmlAttributes: new { @class = "btn btn-primary" })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ExpedienteID }, htmlAttributes: new { @class = "btn btn-primary", @target="_blank" }) |
+            @Html.ActionLink("Imprimir", "Reporte", "Reportes", new { id=item.ExpedienteID}, htmlAttributes: new { @class = "btn btn-primary" })
         </td>
     </tr>
 }
