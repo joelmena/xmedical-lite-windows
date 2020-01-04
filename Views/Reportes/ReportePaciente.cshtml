@@ -1,0 +1,292 @@
+﻿@model XMedicalLite_Windows.Models.Reporte
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+@*<link href="~/Content/Site.css" rel="stylesheet" />*@
+<link href="~/Content/reportes.css" rel="stylesheet" />
+
+<title>Reporte</title>
+
+@*======================ESTILO PARA OCULTAR BOTONES DEL REPORTE==========================*@
+
+<style type="text/css">
+
+    .ocultarColumna {
+        display: none;
+    }
+</style>
+
+@*=======================================================================================*@
+
+@*=======================scripts para la fecha escrito por vladimir nuñez============*@
+<Script Language="JavaScript">
+    function DameLaFechaHora() {
+        var hora = new Date()
+        var hrs = hora.getHours();
+        var min = hora.getMinutes();
+        var hoy = new Date();
+        var m = new Array();
+        var d = new Array()
+        var an = hoy.getYear();
+        var fecha = new Date();
+        var anyo = fecha.getFullYear();
+
+        m[0] = "Enero"; m[1] = "Febrero"; m[2] = "Marzo";
+        m[3] = "Abril"; m[4] = "Mayo"; m[5] = "Junio";
+        m[6] = "Julio"; m[7] = "Agosto"; m[8] = "Septiembre";
+        m[9] = "Octubre"; m[10] = "Noviembre"; m[11] = "Diciembre";
+        //document.write("Son las "+hrs+":"+min+" (");
+        document.write(hoy.getDate());
+        document.write(" de ");
+        document.write(m[hoy.getMonth()] + " ");
+        document.write(anyo);
+    }
+
+    function deshabilitaRetroceso() {
+        window.location.hash = "no-back-button";
+        window.location.hash = "Again-No-back-button" //chrome
+        window.onhashchange = function () { window.location.hash = "no-back-button"; }
+    }
+
+    window.onload = deshabilitaRetroceso();
+</Script>
+@*================================================================================================*@
+
+
+<div class="contenedor" width="816">
+    @foreach (var item in Model)
+    {
+        <header class="col l12 row">
+            <div class="col l6 s6">
+                <img alt="Logo Siglo 21" src="~/Content/img/logo-siglo.png" width="140" />
+            </div>
+            <div class="col l6 s6">
+                <p class="datosSiglo"><b>GRUPO MEDICO UNIDO, S.A.</b></p>
+                <p class="datosSiglo2">
+                    <i>C/ Duarte #25 casi esq. La Cruz, San Francisco de Macor&iacute;s</i><br>
+                    <i><b>Telefono:</b>&#32; 809-588-1717</i><br>
+                    <i><b>RNC:</b>&#32; 1-01-60581-2</i><br>
+                    @*<i><b>Fecha:</b>&#32;
+                        <script>DameLaFechaHora()</script></i><br />*@
+                </p>
+            </div><br />
+            <h6 align="center"><b>Expediente Clinico de Emergencia</b></h6>
+        </header>
+        <!-- Titulo Datos del Paciente -->
+        <p class="titulos" align="center"> <b>Datos del paciente - (@Html.DisplayFor(modelItem => item.CodigoIngreso))</b></p>
+        <div class="row col l12">
+            <p class="col s8 l8 nombrePaciente"><b>Nombre:&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.NombrePaciente)</p>
+            <p class="col l4 s4"><b>Cedula:&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.Cedula)</p>
+            <p class="col l4 s4"><b>Fecha Nacimiento:&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.FechaNacimiento.GetDateTimeFormats()[0])</p>
+            <p class="col l4 s4"><b>Edad:&#32;</b>@ViewBag.edad</p>
+            <p class="col l4 s4"><b>Sexo:&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.Sexos.Descripcionsexo)</p>
+            <p class="col l4 s4"><b>Telefono:&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.Telefono)</p>
+            <p class="col l4 s4"><b>Aseguradora:&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.Aseguradoras.NombreAseguradora)</p>
+            <p class="col l4 s4"><b>Poliza No.&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.PolizaARS)</p>
+            <p class="col l4 s4"><b>Ciudad:&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.Ciudad)</p>
+            <p class="col l4 s4"><b>M&eacute;dico:&#32;</b>@Html.DisplayFor(modelItem => item.NombreMedico)</p>
+            <p class="col l4 s4"><b>Triage:</b> @ViewBag.triage</p>
+            <p class="col l8 s8"><b>Direcci&oacute;n:&#32;</b>@Html.DisplayFor(modelItem => item.Pacientes.Direccion)</p>
+            @*<p class="col l8 s8"><b>Fecha y Hora:</b>@Html.DisplayFor(modelItem => item.FechaIngresoPaciente.GetDateTimeFormats()[44])</p>*@
+            <p class="col l8 s8"><b>Fecha y Hora:</b>@Html.DisplayFor(modelItem => item.FechaIngresoPaciente.Value.GetDateTimeFormats()[60]) </p>
+        </div>
+        <!-- Titulo Datos del Paciente -->
+
+        <!-- Historia Enfermedad -->
+        <p class="titulos" align="center"> <b>Historia de la enfermedad</b></p>
+        <p>@Html.DisplayFor(modelItem => item.HistoriaEnfermedad)</p>
+        <!-- Historia Enfermedad -->
+
+        <!-- Antecedentes -->
+        <p class="titulos" align="center"> <b>Antecedentes</b></p>
+
+
+
+        <table class="responsive-table">
+            <thead>
+                @*<tr>
+                        <th>Antecedente</th>
+                        <th>Descripci&oacute;n</th>
+                    </tr>*@
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.Action("IndexAntecedentes", "AntecedentesMedicos", new { id = item.CodigoUnico })</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Antecedentes -->
+
+        <!-- Examen Fisico -->
+        <p class="titulos" align="center"> <b>Examen F&iacute;sico</b></p>
+        <p>@Html.DisplayFor(modelItem => item.ExamenGeneral)</p>
+
+        <table class="responsive-table">
+            <caption><b>Detalles</b></caption>
+            <tbody>
+                <tr>
+                    <td><b>Piel:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenPiel)</td>
+                    <td><b>Pulmones:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenPulmones)</td>
+                </tr>
+                <tr>
+                    <td><b>Cabeza:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenCabeza)</td>
+                    <td><b>Abdomen:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenAbdomen)</td>
+                </tr>
+                <tr>
+                    <td><b>Boca:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenBoca)</td>
+                    <td><b>Genitales:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenGenitales)</td>
+                </tr>
+                <tr>
+                    <td><b>Cuello:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenCuello)</td>
+                    <td><b>Extremidades:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenExtremidades)</td>
+                </tr>
+                <tr>
+                    <td><b>Torax:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenTorax)</td>
+                    <td><b>Otros:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.OtrosExamenes)</td>
+                </tr>
+                <tr>
+                    <td><b>Coraz&oacute;n:</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.ExamenCorazon)</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Examen Fisico -->
+
+        <!-- Signos Vitales -->
+        <p class="titulos" align="center"> <b>Signos Vitales</b></p>
+        <table>
+            <tbody>
+                <tr>
+                    <td><b>TA</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.PresionArterial) (mmhg)</td>
+                    <td><b>FC</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.FrecuenciaCardiaca) (L/M)</td>
+                    <td><b>T</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.Temperatura) (&#8451;)</td>
+                    <td><b>FR</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.FrecuenciaRespiratoria) (R/M)</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Signos Vitales -->
+
+        <!-- Otros Parametros -->
+        <p class="titulos" align="center"> <b>Otros Par&aacute;metros</b></p>
+        <table>
+            <tbody>
+                <tr>
+                    <td><b>Peso (Kg)</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.Peso)</td>
+                    <td><b>&#37;O2</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.SaturacionOxigeno)</td>
+                    <td><b>Esc. Dolor(1-10)</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.EscalaDolor)</td>
+                    <td><b>Esc. Glasgow(1-15)</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.EscalaGlasgow)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <caption><b>Otros</b></caption>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.OtrosParametros)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <caption><b>Observaciones</b></caption>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Observaciones)</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Otros Parametros -->
+
+        <!-- Historia Diagnosticos -->
+        <p class="titulos" align="center"> <b>Diagnostico</b></p>
+        <p>@Html.DisplayFor(modelItem => item.Diagnostico)</p>
+        <!-- Historia Diagnosticos -->
+
+        <!-- Estudios -->
+        <p class="titulos" align="center"> <b>Estudios</b></p>
+
+        <table class="responsive-table">
+            <tbody>
+                <tr>
+                    <td>@Html.Action("IndexEstudios", "Estudios", new { id = item.CodigoIngreso })</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Estudios -->
+
+        <!-- Tratamientos -->
+        <p class="titulos" align="center"> <b>Tratamientos</b></p>
+
+        <table class="responsive-table">
+            <tbody>
+                <tr>
+                    <td>@Html.Action("IndexTratamientos", "Tratamientos", new { id = item.CodigoIngreso })</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Estudios -->
+
+
+        <!-- Historia COMENTARIOS -->
+        <p class="titulos" align="center"> <b>Comentarios</b></p>
+        <p>@Html.DisplayFor(modelItem => item.Comentarios)</p>
+        <!-- Historia COMENTARIOS -->
+
+        <!-- Historia COMENTARIOS -->
+        <fieldset class="pronostico2">
+            <legend><b>Pronostico</b></legend>
+            <p>@Html.DisplayFor(modelItem => item.Pronostico)</p>
+        </fieldset>
+
+
+
+
+        <!-- Historia COMENTARIOS -->
+
+        <br /><br>
+
+
+        <div class="center">
+            <div class="firma push-l5 " higth="50">
+                <p><b>Firma del M&eacute;dico</b></p>
+            </div>
+
+        </div><br /><br />
+
+
+
+    }
+
+    <a href="#" class="btn-floating btn-small waves-effect waves-light red cerrar-pestana" id="cerrarpesta" onclick="window.close();"><i class="material-icons">close</i></a>
+
+    <a class="btn-floating btn-large waves-effect waves-light green darken-2" href="#" id="btn-regresar" onclick="window.print()"><i class="material-icons">local_printshop</i></a>
+
+</div>
+
+
+
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

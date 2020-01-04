@@ -49,10 +49,10 @@ namespace XMedicalLite_Windows.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            if (HttpContext.Session.Count == 0)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            //if (HttpContext.Session.Count == 0)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
 
             return View();
         }
@@ -64,10 +64,10 @@ namespace XMedicalLite_Windows.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UsuarioID,NombreUsuario,Password,Nombre,Apellido")] Usuario usuario)
         {
-            if (HttpContext.Session.Count == 0)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            //if (HttpContext.Session.Count == 0)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
 
             if (ModelState.IsValid)
             {
