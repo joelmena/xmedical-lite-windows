@@ -26,5 +26,6 @@ namespace XMedicalLite.Models
         public DbSet<Sexo> Sexos { get; set; }
         public DbSet<EstadoCivil> EstadosCivil { get; set; }
         public DbSet<Triaje> Triajes { get; set; }
+        public DbSet<Empresa> Empresas { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace XMedicalLite_Windows.Controllers
             Reporte reporte = new Reporte();
             reporte.Expediente = db.Expedientes.Find(id);
             reporte.Paciente = db.Pacientes.Find(reporte.Expediente.PacienteID);
+            reporte.Empresa = db.Empresas.FirstOrDefault();
+            var ruta = reporte.Empresa.RutaImagen.Replace(@"\\", @"\");
             return View(reporte);
         }
     }

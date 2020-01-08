@@ -10,5 +10,6 @@ namespace XMedicalLite_Windows.Models
     {
         public Paciente Paciente { get; set; }
         public Expediente Expediente { get; set; }
+        public Empresa Empresa { get; set; }
     }
 }

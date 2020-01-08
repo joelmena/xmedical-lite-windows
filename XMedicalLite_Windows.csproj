@@ -102,6 +102,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\caduceoMedico.png" />
+    <Content Include="Content\img\caduceoMedico2.jpg" />
     <Content Include="Content\reportes.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
@@ -174,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EmpresasController.cs" />
     <Compile Include="Controllers\ExpedientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PacientesController.cs" />
@@ -195,6 +198,7 @@
       <DependentUpon>201912082312037_modelo_triaje.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\EstadoCivil.cs" />
     <Compile Include="Models\Expediente.cs" />
     <Compile Include="Models\MyDbContext.cs" />
@@ -224,6 +228,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Reportes\Reporte_old.cshtml" />
     <Content Include="Views\Reportes\Reporte.cshtml" />
+    <Content Include="Views\Shared\_Empresa.cshtml" />
+    <Content Include="Views\Empresas\Create.cshtml" />
+    <Content Include="Views\Empresas\Delete.cshtml" />
+    <Content Include="Views\Empresas\Details.cshtml" />
+    <Content Include="Views\Empresas\Edit.cshtml" />
+    <Content Include="Views\Empresas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

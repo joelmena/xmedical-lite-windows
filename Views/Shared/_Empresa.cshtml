@@ -1,0 +1,102 @@
+﻿
+@model XMedicalLite.Models.Empresa
+
+
+<strong>
+    <p>Datos Generales</p>
+</strong>
+<div class="aj-container">
+    <div class="row">
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Referencia)
+            </strong>
+            @Html.DisplayFor(model => model.Referencia)
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <strong>
+                Fecha y hora de ingreso:
+            </strong>
+            @ViewBag.fechaCreado
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Nombres)
+            </strong>
+            @Html.DisplayFor(model => model.Nombres)
+        </div>
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Apellidos)
+            </strong>
+            @Html.DisplayFor(model => model.Apellidos)
+        </div>
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Cedula)
+            </strong>
+            @Html.DisplayFor(model => model.Cedula)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Sexo.Descripcion)
+            </strong>
+            @Html.DisplayFor(model => model.Sexo.Descripcion)
+        </div>
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.FechaNacimiento)
+            </strong>
+            @Html.DisplayFor(model => model.FechaNacimiento)
+        </div>
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.EstadoCivil.Descripcion)
+            </strong>
+            @Html.DisplayFor(Model => Model.EstadoCivil.Descripcion)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Direccion)
+            </strong>
+            @Html.DisplayFor(model => model.Direccion)
+        </div>
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Telefono)
+            </strong>
+            @Html.DisplayFor(model => model.Telefono)
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.Aseguradora)
+            </strong>
+            @Html.DisplayFor(model => model.Aseguradora)
+        </div>
+        <div class="col">
+            <strong>
+                @Html.LabelFor(model => model.NumeroNSS)
+            </strong>
+            @Html.DisplayFor(model => model.NumeroNSS)
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>

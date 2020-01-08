@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-@*<link href="~/Content/Site.css" rel="stylesheet" />*@
+<link href="~/Content/Site.css" rel="stylesheet" />
 <link href="~/Content/reportes.css" rel="stylesheet" />
 
 <title>Reporte</title>
@@ -62,20 +62,20 @@
     @*@foreach (var item in Model)
     {*@
         <header class="col l12 row">
-            <div class="col l6 s6">
-                <img alt="Logo Siglo 21" src="~/Content/img/logo-siglo.png" width="140" />
+            <div class="col 3 s3">
+                <img alt="Logo" src="~/Content/img/caduceoMedico.png" width="150"/>
             </div>
-            <div class="col l6 s6">
-                <p class="datosSiglo"><b>GRUPO MEDICO UNIDO, S.A.</b></p>
+            <div class="col l9 s9" align="center">
+                <p class="datosSiglo"><h4>@Html.DisplayFor(model => model.Empresa.Nombre)</h4></p>
                 <p class="datosSiglo2">
-                    <i>C/ Duarte #25 casi esq. La Cruz, San Francisco de Macor&iacute;s</i><br>
-                    <i><b>Telefono:</b>&#32; 809-588-1717</i><br>
-                    <i><b>RNC:</b>&#32; 1-01-60581-2</i><br>
+                    <i>@Html.DisplayFor(model => model.Empresa.Direccion)</i><br>
+                    <i><b>Telefono:</b>@Html.DisplayFor(model => model.Empresa.Telefono)</i><br>
+                    <i><b>RNC:</b>@Html.DisplayFor(model => model.Empresa.RNC)</i><br>
                     @*<i><b>Fecha:</b>&#32;
                         <script>DameLaFechaHora()</script></i><br />*@
                 </p>
             </div><br />
-            <h6 align="center"><b>Expediente Clinico de Emergencia</b></h6>
+            <h6 align="right"><b>Expediente Clinico de Emergencia</b></h6>
         </header>
         <!-- Titulo Datos del Paciente -->
         <p class="titulos" align="center"> <b>Datos del paciente - (@Html.DisplayFor(modelItem => modelItem.Paciente.Referencia))</b></p>
