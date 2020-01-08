@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -158,9 +159,15 @@ namespace XMedicalLite_Windows.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DatosPaciente(int id)
+        public ActionResult DatosPaciente(int idPaciente, int idExpediente = 0)
         {
-            var paciente = db.Pacientes.Find(id);
+            DateTime fechaCreado = DateTime.Now;
+            if(idExpediente != 0)
+            {
+                fechaCreado = db.Expedientes.Find(idExpediente).CreadoEn;
+            }
+            ViewBag.fechaCreado = fechaCreado.ToString("G", CultureInfo.CreateSpecificCulture("es-DO"));
+            var paciente = db.Pacientes.Find(idPaciente);
             return PartialView("/Views/Shared/_Paciente.cshtml", paciente);
         }
 

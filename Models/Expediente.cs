@@ -83,7 +83,7 @@ namespace XMedicalLite.Models
         [DataType(DataType.DateTime)]
         public DateTime CreadoEn { get; set; }
 
-        [Display(Name = "Fecha creado")]
+        [Display(Name = "Fecha actualizado")]
         [DataType(DataType.DateTime)]
         public DateTime ActualizadoEn { get; set; }
 

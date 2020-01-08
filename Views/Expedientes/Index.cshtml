@@ -11,6 +11,9 @@
             No.
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Paciente.Referencia)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Paciente.Nombres)
         </th>
         <th>
@@ -20,7 +23,7 @@
             @Html.DisplayNameFor(model => model.Paciente.Cedula)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Paciente.FechaNacimiento)
+            @Html.DisplayNameFor(model => model.CreadoEn)
         </th>
         <th></th>
     </tr>
@@ -29,6 +32,9 @@
     <tr>
         <td>
             
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paciente.Referencia)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Paciente.Nombres)
@@ -40,12 +46,12 @@
             @Html.DisplayFor(modelItem => item.Paciente.Cedula)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Paciente.FechaNacimiento)
+            @Html.DisplayFor(modelItem => item.CreadoEn)
         </td>
         
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ExpedienteID }, htmlAttributes: new { @class = "btn btn-primary", @target="_blank" }) |
-            @Html.ActionLink("Imprimir", "Reporte", "Reportes", new { id=item.ExpedienteID}, htmlAttributes: new { @class = "btn btn-primary" })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ExpedienteID }, htmlAttributes: new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Imprimir", "Reporte", "Reportes", new { id=item.ExpedienteID}, htmlAttributes: new { @class = "btn btn-primary", @target="_blank" })
         </td>
     </tr>
 }

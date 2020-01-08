@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 <div class="">
-    @{Html.RenderAction("DatosPaciente", "Pacientes", new { id = Model.PacienteID }); }
+    @{Html.RenderAction("DatosPaciente", "Pacientes", new { idPaciente = Model.PacienteID, idExpediente = Model.ExpedienteID }); }
 </div>
 
 @using (Html.BeginForm())
@@ -18,12 +18,17 @@
     @Html.HiddenFor(model => model.ExpedienteID)
     @Html.HiddenFor(model => model.CreadoEn)
 
-    <div class="row">
-        <div class="col">
-            @Html.LabelFor(model => model.Triaje.Color)
-            @Html.DropDownListFor(model => model.TriajeID, ViewBag.TriajeID as SelectList, "Seleccionar", htmlAttributes: new { @class = "form-group" })
+<div class="col-12 mt-3">
+    <div class="">
+        <div class="col-3">
+            <h4>@Html.LabelFor(model => model.Triaje.Color)</h4>
+        </div>
+        <div class="col-4">
+
+        @Html.DropDownList("TriajeID", null, "Seleccionar triaje", htmlAttributes: new { @class = "form-control" })
         </div>
     </div>
+</div>
 
     <div class="col-12 mt-3">
         <div class="card">

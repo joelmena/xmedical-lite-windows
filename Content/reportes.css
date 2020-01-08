@@ -1,0 +1,98 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.contenedor {
+    width: 816px !important;
+    margin: 10px auto;
+}
+
+p, tr, fieldset, legend, caption {
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+}
+
+.borde-div {
+    border: solid 1px grey;
+    max-width: 50%;
+    float: left;
+}
+
+.pronostico2 {
+    max-width: 100%;
+}
+
+.datosSiglo {
+    font-size: 12px;
+    text-align: right;
+}
+
+.datosSiglo2 {
+    font-size: 10px;
+    text-align: right;
+}
+
+p {
+    font-size: 12px;
+}
+
+td {
+    font-size: 10px;
+}
+
+tr th {
+    font-size: 12px !important;
+}
+
+.titulos {
+    background-color: rgb(186,194,197);
+}
+
+thead tr, td, th {
+    margin: 0 !important;
+    padding: 2px !important;
+}
+
+tbody tr {
+    margin: 0 !important;
+    padding: 2px !important;
+}
+
+caption {
+    font-size: 12px;
+    border-bottom: 1px solid black;
+}
+
+.firma {
+    border-top: 1px solid black;
+    width: 250px;
+}
+
+#btn-regresar {
+    position: fixed;
+    right: 30px;
+    bottom: 40px;
+}
+
+@media print {
+    #btn-regresar {
+        display: none !important;
+    }
+
+    #cerrarpesta {
+        display: none !important;
+    }
+}
+
+header {
+    margin-bottom: 0 !important;
+}
+
+.cerrar-pestana {
+    position: fixed;
+    bottom: 110px;
+    right: 40px;
+}

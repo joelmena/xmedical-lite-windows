@@ -12,7 +12,7 @@
 </div>*@
 
 <div class="">
-    @{Html.RenderAction("DatosPaciente", "Pacientes", new { id = ViewBag.PacienteID }); }
+    @{Html.RenderAction("DatosPaciente", "Pacientes", new { idPaciente = ViewBag.PacienteID }); }
 </div>
 
 @using (Html.BeginForm())
