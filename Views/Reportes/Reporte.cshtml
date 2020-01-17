@@ -61,26 +61,30 @@
 <div class="contenedor" width="816">
     @*@foreach (var item in Model)
     {*@
-        <header class="col l12 row">
-            <div class="col 3 s3">
-                <img alt="Logo" src="~/Content/img/caduceoMedico.png" width="150"/>
-            </div>
-            <div class="col l9 s9" align="center">
-                <p class="datosSiglo"><h4>@Html.DisplayFor(model => model.Empresa.Nombre)</h4></p>
-                <p class="datosSiglo2">
-                    <i>@Html.DisplayFor(model => model.Empresa.Direccion)</i><br>
-                    <i><b>Telefono:</b>@Html.DisplayFor(model => model.Empresa.Telefono)</i><br>
-                    <i><b>RNC:</b>@Html.DisplayFor(model => model.Empresa.RNC)</i><br>
-                    @*<i><b>Fecha:</b>&#32;
-                        <script>DameLaFechaHora()</script></i><br />*@
-                </p>
-            </div><br />
-            <h6 align="right"><b>Expediente Clinico de Emergencia</b></h6>
-        </header>
+    <header class="col-12 row">
+        <div class=" col col-3logoSns">
+            <img alt="Logo" src="~/Content/img/logo_sns.png" width="150" />
+        </div>
+        <div class="col col-6 datosSiglo" align="center">
+
+            <p class="" style="font-weight:bold;">@Html.DisplayFor(model => model.Empresa.Nombre)</p>
+            <p class="">
+                <i>@Html.DisplayFor(model => model.Empresa.Direccion)</i><br>
+                <i><b>Telefono:</b>@Html.DisplayFor(model => model.Empresa.Telefono)</i><br>
+                <i><b>RNC:</b>@Html.DisplayFor(model => model.Empresa.RNC)</i><br>
+            </p>
+         </div>
+        <div class="col-3 logoHosp">
+            <img alt="Logo" src="~/Content/img/logo_cabral_y_baez.jpg" width="90" />
+        </div>
+        <br />
+    </header>
+        <p align="center" style="margin-bottom: 5px;"><b>Expediente Clinico de Emergencia</b></p>
         <!-- Titulo Datos del Paciente -->
         <p class="titulos" align="center"> <b>Datos del paciente - (@Html.DisplayFor(modelItem => modelItem.Paciente.Referencia))</b></p>
         <div class="row col l12">
-            <p class="col s8 l8 nombrePaciente"><b>Nombre:&#32;</b>@Html.DisplayFor(modelItem => modelItem.Paciente.Nombres)</p>
+            <p class="col l4 l4 nombrePaciente"><b>Nombre:&#32;</b>@Html.DisplayFor(modelItem => modelItem.Paciente.Nombres)</p>
+            <p class="col l4 l4 nombrePaciente"><b>Apellidos:&#32;</b>@Html.DisplayFor(modelItem => modelItem.Paciente.Apellidos)</p>
             <p class="col l4 s4"><b>Cedula:&#32;</b>@Html.DisplayFor(modelItem => modelItem.Paciente.Cedula)</p>
             <p class="col l4 s4"><b>Fecha Nacimiento:&#32;</b>@Html.DisplayFor(modelItem => modelItem.Paciente.FechaNacimiento)</p>
             <p class="col l4 s4"><b>Edad:&#32;</b>@ViewBag.edad</p>

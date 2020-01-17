@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using XMedicalLite.Models;
 using XMedicalLite_Windows.Models;
+using XMedicalLite_Windows.Tools;
 
 namespace XMedicalLite_Windows.Controllers
 {
@@ -23,8 +24,10 @@ namespace XMedicalLite_Windows.Controllers
             reporte.Expediente = db.Expedientes.Find(id);
             reporte.Paciente = db.Pacientes.Find(reporte.Expediente.PacienteID);
             reporte.Empresa = db.Empresas.FirstOrDefault();
-            var ruta = reporte.Empresa.RutaImagen.Replace(@"\\", @"\");
+            //ViewBag.edad = DateTime.Now.Year - reporte.Paciente.FechaNacimiento.Year;
+            ViewBag.edad = new Utility().Age(reporte.Paciente.FechaNacimiento, reporte.Expediente.CreadoEn);
             return View(reporte);
         }
+
     }
 }

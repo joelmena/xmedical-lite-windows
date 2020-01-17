@@ -93,6 +93,7 @@ namespace XMedicalLite_Windows.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Paciente paciente = db.Pacientes.Find(id);
+            paciente.FechaNacimiento = paciente.FechaNacimiento.Date;
             if (paciente == null)
             {
                 return HttpNotFound();
