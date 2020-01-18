@@ -16,14 +16,19 @@ namespace XMedicalLite_Windows.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Pacientes
-        public ActionResult Index()
+        public ActionResult Index(string busqueda)
         {
             if (HttpContext.Session.Count == 0)
             {
                 return RedirectToAction("Index", "Home");
             }
+            if(string.IsNullOrEmpty(busqueda))
+            {
+                return View(db.Pacientes.ToList());
+            }
+            var pacientes = db.Pacientes.Where(p => p.Nombres.Contains(busqueda) || p.Apellidos.Contains(busqueda) || p.Cedula.Contains(busqueda));
             
-            return View(db.Pacientes.ToList());
+            return View(pacientes.ToList());
         }
 
         // GET: Pacientes/Details/5

@@ -9,6 +9,13 @@
         @Html.ActionLink("Nuevo paciente", "Create", null, new { @class = "btn btn-primary" })
     </p>
 </div>
+
+<div>
+    <form action="/Pacientes/Index" method="get">
+        <input type="text" name="busqueda"/>
+        <input type="submit" value="Buscar" />
+    </form>
+</div>
 <table class="table">
     <tr>
         <th>
